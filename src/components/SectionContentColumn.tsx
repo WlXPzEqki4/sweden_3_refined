@@ -5,11 +5,19 @@ import { ContentBlock } from "./ContentBlock";
 import { DiplomaticTimeline } from "./DiplomaticTimeline";
 import { RelationshipMeter } from "./RelationshipMeter";
 import { TabContent } from "./TabContent";
+import { SectionData } from "../data/relationData";
 import { KeyContactsSection } from "./KeyContactsSection";
 import { KeyContact, RelationshipDimension } from "../types";
+import NetworkDiagram from "./NetworkDiagram";
+import TopicAnalysis from "./TopicAnalysis";
+import ThematicNetworkDiagram from "./ThematicNetworkDiagram";
+
+
+
 
 interface SectionContentColumnProps {
   id: string;
+  data: SectionData;
   title: string;
   content: ContentBlockType[];
   timeline?: any[];
@@ -22,6 +30,7 @@ interface SectionContentColumnProps {
 export const SectionContentColumn: React.FC<SectionContentColumnProps> = ({
   id,
   title,
+  data,
   content,
   timeline,
   relationshipDimensions,
@@ -74,6 +83,40 @@ export const SectionContentColumn: React.FC<SectionContentColumnProps> = ({
           isActive={isActive} 
         />
       )}
+
+      {/* Interactive Visualisations - Only show in dedicated section */}
+      {data.id === "interactive-visualisations" && (
+          <div className="mt-6" >
+            {/* <h3 className="text-xl font-display font-medium mb-4 text-navy">{data.title}</h3> */}
+            <NetworkDiagram />
+            <TopicAnalysis />
+            <ThematicNetworkDiagram />
+          </div>
+
+
+
+
+
+
+        )}
+
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

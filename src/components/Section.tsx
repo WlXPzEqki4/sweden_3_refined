@@ -30,6 +30,7 @@ export const Section: React.FC<SectionProps> = ({ data, isActive, registerSectio
           {/* Content column */}
           <SectionContentColumn
             id={data.id}
+            data={data}
             title={data.title}
             content={data.content}
             timeline={data.timeline}

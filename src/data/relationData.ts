@@ -1020,6 +1020,24 @@ export const relationsSections: SectionData[] = [
       ]
     }
   },
+
+
+  {
+    id: "interactive-visualisations",
+    title: "Interactive Visualisations",
+    
+    content: [
+      {
+        type: "paragraph",
+        content: "Below are a number of visusaltions which highlight current trends and themes in the UAE-Sweden relationship discussed above."
+      }
+    ]
+  },
+
+
+
+
+
   {
     id: "conclusion",
     title: "Conclusion",
