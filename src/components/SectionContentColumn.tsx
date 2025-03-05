@@ -11,8 +11,7 @@ import { KeyContact, RelationshipDimension } from "../types";
 import NetworkDiagram from "./NetworkDiagram";
 import TopicAnalysis from "./TopicAnalysis";
 import ThematicNetworkDiagram from "./ThematicNetworkDiagram";
-
-
+import MapConnection from "./MapConnection";
 
 
 interface SectionContentColumnProps {
@@ -91,6 +90,16 @@ export const SectionContentColumn: React.FC<SectionContentColumnProps> = ({
             <NetworkDiagram />
             <TopicAnalysis />
             <ThematicNetworkDiagram />
+
+            <MapConnection />
+
+
+
+
+            
+
+
+
           </div>
 
 
