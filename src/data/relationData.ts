@@ -17,7 +17,7 @@ export interface SectionData {
 
 
 export type ContentBlock = {
-  type: "paragraph" | "heading" | "subheading" | "list" | "image" | "quote";
+  type: "paragraph" | "heading" | "subheading" | "list" | "image" | "quote" | "paragraph_html";
   content: string;
   items?: string[]; // For list type
   imageUrl?: string; // For image type
@@ -441,7 +441,21 @@ export const relationsSections: SectionData[] = [
           {
             type: "paragraph",
             content: "For example, the Islamic Association in Sweden (Islamiska Förbundet i Sverige, IFIS) – widely identified as the main MB-affiliated body in the country – functions as a representative Muslim organization. Swedish authorities have engaged with such groups on integration and community issues in the past."
+          },
+          // {
+          //   type: "paragraph_html",
+          //   content: "This paragraph can include a link <a href=\"/pdfs/MB.pdf\" target=\"_blank\">MB PDF</a>."
+          // }
+          
+          
+          {
+            type: "paragraph_html",
+            content: 
+              "This paragraph can include a link <a href=\"/pdfs/MB.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-500 underline\">View PDF</a>."
           }
+          
+
+
         ]
       },
       {
@@ -555,17 +569,39 @@ export const relationsSections: SectionData[] = [
             type: "paragraph",
             content: "These key government figures would be essential contacts for any high-level UAE delegation visiting Sweden."
           }
-        ]
+        ],        
+        keyContacts: [
+
+          {
+            name: "Ulf Kristersson",
+            title: "Prime Minister of Sweden",
+            description: "Prime Minister of Sweden and leader of the Moderate Party who formed a right-wing coalition government in 2022 after narrowly winning the parliamentary elections. His administration has focused on addressing crime, immigration reform, and energy security while navigating Sweden's NATO accession process and maintaining Sweden's commitment to international cooperation on climate and development issues.",
+            influence: "high",
+            imageUrl: "/lovable-uploads/Picture_8.png"
+          },
+          {
+            name: "Carl XVI Gustaf",
+            title: "King of Sweden",
+            description: "King of Sweden since 1973, serving as the country's head of state and representing Sweden in ceremonial functions while maintaining a politically neutral role in accordance with the constitution. Throughout his long reign, he has focused on environmental issues, technology, and entrepreneurship, often participating in state visits that strengthen Sweden's international relationships.",
+            influence: "high",
+            imageUrl: "/lovable-uploads/Picture_9.png"
+          },
+          {
+            name: "Maria Malmer Stenergard",
+            title: "Minister for Foreign Affairs of Sweden",
+            description: "As Sweden's Minister for Foreign Affairs, Malmer Stenergard comes to this position after previously serving as Minister for Migration in Sweden's government, where she implemented more restrictive immigration policies. Before entering national politics, she worked as a municipal politician in Skåne and has a background in law, experience she now applies to navigating Sweden's diplomatic relationships and foreign policy objectives.",
+            influence: "high",
+            imageUrl: "/lovable-uploads/Picture_11.png"
+          },
+          {
+            name: "Benjamin Dousa",
+            title: "Minister for International Development Cooperation and Foreign Trade",
+            description: "Recently appointed as Sweden's Minister for International Development Cooperation and Foreign Trade, Dousa previously served as chairman of the Moderate Youth League (MUF), where he gained prominence as a young political leader. In his current ministerial role, he oversees Sweden's foreign aid programs and international trade relations, bringing his center-right political perspective to the country's economic diplomacy.",
+            influence: "high",
+            imageUrl: "/lovable-uploads/Picture_10.png"
+          }
+        ],
       },
-    
-
-
-
-
-
-
-
-
 
 
 
@@ -626,74 +662,6 @@ export const relationsSections: SectionData[] = [
 
 
         content: [
-
-
-          // {
-          //   type: "subheading",
-          //   content: "Influential Individuals to Meet"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Beyond institutional contacts, certain influential individuals in various fields can provide valuable perspectives and networking opportunities for UAE delegations."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Shared Humanity & Culture"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Leaders in cultural exchange, arts, and humanitarian initiatives who bridge gaps between nations and promote mutual understanding."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Education & Special Projects"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Innovators in education, training, and knowledge transfer with experience in international collaboration and institutional development."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Science and Advanced Technologies"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Pioneers in technological innovation, research, and digital transformation who are shaping Sweden's tech ecosystem."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Medical Affairs & Life Sciences"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Experts in healthcare, pharmaceuticals, and biotechnology with insights into Sweden's renowned medical research and healthcare systems."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Energy & Sustainability"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Leaders in renewable energy, climate solutions, and sustainable development with experience in policy and implementation."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Strategic Philanthropy"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Visionaries in charitable giving, impact investment, and social enterprise who are driving positive change through innovative funding models."
-          // },
-          // {
-          //   type: "subheading",
-          //   content: "Businesses"
-          // },
-          // {
-          //   type: "paragraph",
-          //   content: "Key executives and entrepreneurs from Swedish companies with international operations and interest in Middle East partnerships."
-          // }
-
-
 
         ],
 
@@ -820,7 +788,7 @@ export const relationsSections: SectionData[] = [
 
         {
           name: "Carin Jämtin",
-          title: "Director General of the Swedish International Development Cooperation Agency (Sida)",
+          title: "Director General of the Swedish International Development Cooperation Agency (SIDA)",
           description: "Former government minister who leads Sweden's official aid agency in strategic philanthropy and development funding worldwide. She collaborates with UAE-based philanthropic organizations like Dubai Cares through international forums such as the Global Partnership for Education, leveraging Sweden's resources through partnerships to maximize impact in areas including education for children in crisis zones.",
           influence: "high",
           imageUrl: "/lovable-uploads/cf96487f-726a-4489-9660-3f23b5b5befa.png"
@@ -842,14 +810,17 @@ export const relationsSections: SectionData[] = [
         
         {
           name: "Jacob Wallenberg",
-          title: "Vice Chairman of Investor AB (the Wallenberg investment holding)",
+          title: "Vice Chairman of Investor AB (the Wallenberg Investment Holding)",
           description: "Vice chairman of Investor AB and patriarch of Sweden's famed Wallenberg family who presides over a vast portfolio of Sweden's largest companies including ABB, Ericsson, and AstraZeneca. He has led business delegations to the Gulf and overseen Wallenberg-chaired companies like Saab AB which sells defense systems to the UAE, actively supporting stronger Sweden-UAE economic relationships.",
+          highlightedNote: "See link below for deep-dive report PDF:",
+
+          // description: "Vice chairman of Investor AB and patriarch of Sweden's famed Wallenberg family who presides over a vast portfolio of Sweden's largest companies including ABB, Ericsson, and AstraZeneca. He has led business delegations to the Gulf and overseen Wallenberg-chaired companies like Saab AB which sells defense systems to the UAE, actively supporting stronger Sweden-UAE economic relationships. See link below for deep-dive report PDF:",
           influence: "high",
-          imageUrl: "/lovable-uploads/Picture_1.png"
-  
+          imageUrl: "/lovable-uploads/Picture_1.png",
+          pdfLink: "/pdfs/Wallenger.pdf"
         },
         {
-          name: "Daniel Ek",
+          name: "Daniel Elk",
           title: "Co-Founder and CEO of Spotify",
           description: "Co-founder and CEO of Spotify who transformed the global music industry, growing his Stockholm startup into a NYSE-listed giant with users in over 180 markets. He has participated in the UAE's World Government Summit and overseen Spotify's 2018 launch in the Middle East, where the service has gained popularity and developed regional partnerships.",
           influence: "medium",
@@ -942,240 +913,7 @@ export const relationsSections: SectionData[] = [
         ]
       }
 
-
-
-
-
-
-
-
-
-
-
-
     ],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // keyContacts: [
-
-
-    //   {
-    //     name: "Danica Kragić Jensfelt",
-    //     title: "Professor of Robotics at KTH Royal Institute of Technology",
-    //     description: "One of the world's leading experts in robotics and computer vision. She has been named among Sweden's most powerful women in industry and \"Swede of the Year\" for her scientific contributions, while serving as a member of the Royal Swedish Academy of Sciences.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/22d8e4ad-99a2-4b4d-923d-db52a3fd7d2b.png"
-    //   },
-    //   {
-    //     name: "Antonia Ax:son Johnson",
-    //     title: "Former Chairman of Axel Johnson AB",
-    //     description: "Fourth-generation leader of Axel Johnson AB, a family company founded in 1873, where she served as chairman from 1982 until stepping down as CEO in 2015 while maintaining ownership and board presence. With a net worth of $10.2 billion as of April 2024, she remains one of Sweden's richest and most influential businesswomen, occasionally engaging with Gulf region investors over recent decades.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/f768b986-b09f-4177-9aea-5d7d503d961e.png"
-    //   },
-      
-    //   {
-    //     name: "Anders Kiessling",
-    //     title: "Professor of Aquaculture at the Swedish University of Agricultural Sciences",
-    //     description: "Pioneered \"aqua-agro\" techniques to recycle nutrients between land agriculture and aquaculture. He led an SLU delegation to the UAE to explore research partnerships, exemplifying Sweden's academic approach to addressing global food security challenges through international collaboration.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/c3b63bf0-b4ac-4e46-92c5-7b251407ddfc.png"
-    //   },
-    //   {
-    //     name: "Peter Värbrand",
-    //     title: "Deputy Vice-Chancellor for External Relations and Innovation at Linköping University",
-    //     description: "Has significantly advanced international academic partnerships. He played a key role in establishing a Memorandum of Understanding between Linköping University and the University of Sharjah in the UAE, focusing on joint research and technology exchange in fields including drone aviation systems and aerospace.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/39c33f25-e22d-43d3-9cf9-63506736328a.png"
-    //   },
-      
-    //   {
-    //     name: "Fredrik Heintz",
-    //     title: "Professor at Linköping University & Chair of Swedish National AI Council",
-    //     description: "Leading AI researcher who shapes Sweden's AI strategy, particularly in AI ethics and autonomous systems. His focus on AI for social good aligns with UAE initiatives, though his work remains primarily centered on Sweden's AI landscape and education.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/e88f8927-5a5e-4b32-aa0b-b04fa6705dad.png"
-    //   },
-    //   {
-    //     name: "Max Tegmark",
-    //     title: "Swedish-American Physicist & MIT Professor",
-    //     description: "Influential AI safety expert who co-founded the Future of Life Institute and authored the seminal book \"Life 3.0\" on artificial intelligence's future. While based primarily in the US, his Swedish roots enhance Sweden's credibility in AI ethics globally, with his principles on AI governance resonating with UAE efforts to develop AI ethical frameworks.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/f8a3266d-76bb-484e-8675-b4c0c584f53b.png"
-    //   },
-    //   {
-    //     name: "Sara Mazur",
-    //     title: "Chair of the Wallenberg AI, Autonomous Systems and Software Program (WASP)",
-    //     description: "Former Ericsson R&D head who leads Sweden's largest research program on AI and autonomous systems. She coordinates hundreds of researchers keeping Sweden at the AI forefront, engaging internationally including emerging dialogues with UAE's AI Ministry on smart cities and healthcare applications.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/80a6c79a-30a4-41e2-a757-3c8e946e40ce.png"
-    //   },
-      
-    //   {
-    //     name: "Laurent Leksell",
-    //     title: "Co-founder and Chairman of Elekta AB",
-    //     description: "Built on his father's Gamma Knife invention to create a leading medical technology enterprise for cancer and neurosurgery treatment. Under his leadership, Elekta has become a key partner for UAE healthcare providers in oncology, showcasing advanced radiotherapy solutions at Dubai's Arab Health conference and supporting the Emirates' healthcare advancement goals.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/7e973896-4f8c-4594-8325-dca6fca727f1.png"
-    //   },
-    //   {
-    //     name: "Björn Zoëga",
-    //     title: "Distinguished orthopedic surgeon and former CEO of Karolinska University Hospital",
-    //     description: "Has played a significant role in exporting Swedish medical expertise to the Gulf region. Since 2016, he has worked with Sweden's GHP Healthcare to oversee specialized spine surgery departments in both Sweden and the UAE, exemplifying effective cross-border medical knowledge transfer.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/d0860c34-58dc-4811-964b-e983de165b9c.png"
-    //   },
-      
-    //   {
-    //     name: "Jacob Wallenberg",
-    //     title: "Vice Chairman of Investor AB (the Wallenberg investment holding)",
-    //     description: "Vice chairman of Investor AB and patriarch of Sweden's famed Wallenberg family who presides over a vast portfolio of Sweden's largest companies including ABB, Ericsson, and AstraZeneca. He has led business delegations to the Gulf and overseen Wallenberg-chaired companies like Saab AB which sells defense systems to the UAE, actively supporting stronger Sweden-UAE economic relationships.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/Picture_1.png"
-
-    //   },
-    //   {
-    //     name: "Daniel Ek",
-    //     title: "Co-Founder and CEO of Spotify",
-    //     description: "Co-founder and CEO of Spotify who transformed the global music industry, growing his Stockholm startup into a NYSE-listed giant with users in over 180 markets. He has participated in the UAE's World Government Summit and overseen Spotify's 2018 launch in the Middle East, where the service has gained popularity and developed regional partnerships.",
-    //     influence: "medium",
-    //     imageUrl: "/lovable-uploads/Picture_2.png"
-    //   },
-    //   {
-    //     name: "Sebastian Siemiatkowski",
-    //     title: "CEO and Co-Founder of Klarna",
-    //     description: "CEO and co-founder of Klarna, the Stockholm-based fintech unicorn valued at billions of dollars that pioneered 'buy-now-pay-later' payment solutions. While Klarna has no direct UAE operations, Siemiatkowski's success has attracted interest from Middle Eastern investors and banks, and he has appeared at fintech events with Gulf participants.",
-    //     influence: "medium",
-    //     imageUrl: "/lovable-uploads/Picture_3.png"
-    //   },
-    //   {
-    //     name: "Stefan Persson",
-    //     title: "Long-time Chairman and Chairman Emeritus of H&M Group ",
-    //     description: "Long-time chairman (now chairman emeritus) of H&M Group who expanded the family business into a worldwide fast-fashion empire. Under his leadership, H&M established dozens of stores across the UAE through regional franchise partners and developed partnerships with Emirati mall operators.",
-    //     influence: "low",
-    //     imageUrl: "/lovable-uploads/Picture_4.png"
-    //   },
-      
-    //   {
-    //     name: "Magnus Olsson",
-    //     title: "Co-Founder of Careem",
-    //     description: "Swedish co-founder of Careem, the UAE-based ride-hailing company acquired by Uber for $3.1 billion in 2019. He continues to be based partly in Dubai, mentoring startups at Abu Dhabi's Hub71 tech hub and serving as a prime example of Swedish entrepreneurial success in the Gulf region.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/Picture_5.png"
-    //   },
-    //   {
-    //     name: "Marcus Wallenberg",
-    //     title: "Chairman of Saab, frequent interlocutor with UAE senior leaders ",
-    //     description: "Chairman of Saab and brother of Jacob Wallenberg who serves on the boards of several Wallenberg companies while frequently engaging with UAE leadership on defense and economic cooperation. His influence extends through major Swedish corporations with significant interests in the Middle East.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/Picture_6.png"
-    //   },
-    //   {
-    //     name: "Börje Ekholm",
-    //     title: "CEO of Ericsson",
-    //     description: "CEO of Ericsson and member of Sweden's AI Commission who leads one of the country's most globally significant technology companies. He has developed important relationships with UAE telecom partners as Ericsson expands its presence in the Middle East telecommunications market.",
-    //     influence: "medium",
-    //     imageUrl: "/lovable-uploads/Picture_7.png"
-    //   },      
-
-
-
-    //   {
-    //     name: "Hanna Stjärne",
-    //     title: "CEO of Sveriges Television (SVT)",
-    //     description: "As the leader of Sweden's public service television broadcaster, Stjärne oversees one of the country's most influential media organizations. She has been instrumental in SVT's digital transformation while maintaining its commitment to impartial news coverage.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/20fd9b55-7a72-4b20-9222-d786abe8b385.png"
-    //   },
-    //   {
-    //     name: "Peter Wolodarski",
-    //     title: "Editor-in-Chief of Dagens Nyheter (DN)",
-    //     description: "Wolodarski leads Sweden's largest morning newspaper and is considered one of the country's most influential media voices. His editorial decisions and columns often shape public discourse on both domestic and international issues.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/0969f621-44c4-4991-a5f3-01dd1bf5488a.png"
-    //   },
-    //   {
-    //     name: "Jan Helin",
-    //     title: "Program Director at SVT",
-    //     description: "A veteran media figure, Helin has held several top positions in Swedish media, including as editor-in-chief at Aftonbladet before joining SVT. He has significant influence over programming decisions at Sweden's public broadcaster.",
-    //     influence: "medium",
-    //     imageUrl: "/lovable-uploads/f497a46e-61f2-4a52-ba6d-fafbe35bbd48.png"
-    //   },
-    //   {
-    //     name: "Cecilia Uddén",
-    //     title: "Swedish Radio foreign correspondent",
-    //     description: "Uddén is one of Sweden's most respected foreign correspondents, with extensive experience reporting from the Middle East. Her analysis and reporting have shaped Swedish public understanding of the region for decades.",
-    //     influence: "medium",
-    //     imageUrl: "/lovable-uploads/c57e75a6-af2a-4f60-bb3a-ea45a44f17e2.png"
-    //   },
-
-
-
-    //   {
-    //     name: "Anna Borg",
-    //     title: "President and CEO of Vattenfall",
-    //     description: "First woman to serve as President and CEO of Vattenfall, Sweden's largest state-owned energy company, where she leads major investments in renewable energy and the transition to fossil-free power. She has engaged with UAE entities like Masdar on renewable energy knowledge exchange and participated in the World Future Energy Summit in Abu Dhabi, offering expertise in offshore wind and grid integration relevant to Gulf energy planning.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/11d49371-2ac2-4f4e-be90-026808e43a71.png"
-    //   },
-    //   {
-    //     name: "Anders Forslund",
-    //     title: "Co-founder and CEO of Heart Aerospace",
-    //     description: "Pioneering green aviation technology by developing a 30-seat hybrid-electric regional airliner scheduled for launch by 2028. He has presented at the Dubai Airshow's tech showcases and interacted with Masdar's mobility innovation teams, positioning his company for potential future partnerships with UAE airlines seeking to reduce their carbon footprint.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/5cf19aab-7d37-4981-8e95-4e83b553c3aa.png"
-    //   },
-    //   {
-    //     name: "Lena Sundquist",
-    //     title: "CEO of Climeon",
-    //     description: "CEO of Climeon, a Swedish clean-tech company that converts waste heat into electricity, representing Sweden's innovative green industrialists. Climeon has piloted systems in UAE desalination plants to improve efficiency, while Sundquist and peers regularly participate in UAE sustainability events to share green technology solutions and expertise.",
-    //     influence: "medium",
-    //     imageUrl: "/lovable-uploads/c65c16e7-15b2-4bee-b538-7daa47914bd2.png"
-    //   },
-    //   {
-    //     name: "Greta Thunberg",
-    //     title: "Environmental Activist",
-    //     description: "Swedish environmental activist who sparked the global youth climate movement beginning with her school strikes at age 15, becoming Time's Person of the Year in 2019. While she has criticized oil-producing nations and become involved in pro-Palestinian activism, her global influence was acknowledged when the UAE extended an invitation to her for COP28 in 2023.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/69aa02d8-2856-40de-8b8f-7c2257c8e37e.png"
-    //   },
-      
-    //   {
-    //     name: "Carin Jämtin",
-    //     title: "Director General of the Swedish International Development Cooperation Agency (Sida)",
-    //     description: "Former government minister who leads Sweden's official aid agency in strategic philanthropy and development funding worldwide. She collaborates with UAE-based philanthropic organizations like Dubai Cares through international forums such as the Global Partnership for Education, leveraging Sweden's resources through partnerships to maximize impact in areas including education for children in crisis zones.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/cf96487f-726a-4489-9660-3f23b5b5befa.png"
-    //   },
-    //   {
-    //     name: "Niklas Zennström",
-    //     title: "Co-founder of Skype and Tech Entrepreneur",
-    //     description: "Prominent Swedish tech entrepreneur who established Zennström Philanthropies with his wife to fund initiatives in climate change, environmental protection, and social entrepreneurship. His strategic global giving aligns with UAE philanthropic programs in sustainability, and he participates in international networks like the UN and World Economic Forum that include UAE stakeholders, exemplifying tech-driven philanthropy focused on cross-border solutions.",
-    //     influence: "high",
-    //     imageUrl: "/lovable-uploads/9c110fb3-7b9b-4eae-97af-e36589d45ca4.png"
-    //   }
-
-
-    // ]
-
-
-
-
-
 
 
   },

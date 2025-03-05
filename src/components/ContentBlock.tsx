@@ -11,6 +11,16 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({ block }) => {
     case "paragraph":
       return <p>{block.content}</p>;
 
+
+
+      case "paragraph_html":
+        return (
+          <p
+            dangerouslySetInnerHTML={{ __html: block.content }}
+          />
+        );
+      
+
     case "heading":
       return <h2 className="text-2xl font-display font-semibold mt-6 mb-4">{block.content}</h2>;
 

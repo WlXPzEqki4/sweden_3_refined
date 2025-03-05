@@ -44,6 +44,8 @@ export interface KeyContact {
   description: string;
   influence: "high" | "medium" | "low";
   imageUrl?: string;
+  pdfLink?: string; // <-- add this optional field
+  highlightedNote?: string; // <-- add this new optional field
 }
 
 // Intersection Observer types

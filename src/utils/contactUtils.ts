@@ -7,6 +7,15 @@ export const getContactsByCategory = (contacts: KeyContact[]) => {
   
   // Group by known categories first
   
+
+  // Government contacts
+  const governmentContacts = contacts.filter(contact => 
+    ["Ulf Kristersson", "Carl XVI Gustaf", "Maria Malmer Stenergard", "Benjamin Dousa"].includes(contact.name)
+  );
+  if (governmentContacts.length > 0) {
+    groupedContacts["Government"] = governmentContacts;
+  }  
+
   // Media contacts
   const mediaContacts = contacts.filter(contact => 
     ["Hanna Stjärne", "Peter Wolodarski", "Jan Helin", "Cecilia Uddén"].includes(contact.name)
@@ -40,7 +49,7 @@ export const getContactsByCategory = (contacts: KeyContact[]) => {
   );
   
   if (techContacts.length > 0) {
-    groupedContacts["Science and Advanced Technologies"] = techContacts;
+    groupedContacts["Science & Advanced Technologies"] = techContacts;
   }
   
   // Medical Affairs & Life Sciences
@@ -72,7 +81,7 @@ export const getContactsByCategory = (contacts: KeyContact[]) => {
   
   // Business
   const businessContacts = contacts.filter(contact => 
-    ["Jacob Wallenberg", "Daniel Ek", "Sebastian Siemiatkowski", "Stefan Persson", 
+    ["Jacob Wallenberg", "Daniel Elk", "Sebastian Siemiatkowski", "Stefan Persson", 
      "Magnus Olsson", "Marcus Wallenberg", "Börje Ekholm"].includes(contact.name)
   );
   
@@ -82,7 +91,7 @@ export const getContactsByCategory = (contacts: KeyContact[]) => {
   
   // Handle any remaining unassigned contacts
   const assignedContactNames = [
-    ...mediaContacts, ...humanityContacts, ...educationContacts, 
+    ...governmentContacts, ...mediaContacts, ...humanityContacts, ...educationContacts, 
     ...techContacts, ...medicalContacts, ...energyContacts, 
     ...philanthropyContacts, ...businessContacts
   ].map(c => c.name);
