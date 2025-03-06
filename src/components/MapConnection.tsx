@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { useState } from "react"
 import { Info } from "lucide-react"
@@ -52,8 +52,8 @@ const investments: InvestmentEntry[] = [
     flags: ["uae", "sweden"],
     position: "top-[15%] left-[20%]",
     coordinates: {
-      uae: { x: 150, y: 70 },
-      sweden: { x: 120, y: 260 },
+      uae: { x: 200, y: 90 },
+      sweden: { x: 165, y: 350 },
     },
   },
   {
@@ -66,8 +66,8 @@ const investments: InvestmentEntry[] = [
     flags: ["uae", "sweden"],
     position: "top-[15%] right-[20%]",
     coordinates: {
-      uae: { x: 220, y: 60 },
-      sweden: { x: 150, y: 280 },
+      uae: { x: 260, y: 60 },
+      sweden: { x: 200, y: 330 },
     },
   },
   {
@@ -80,7 +80,7 @@ const investments: InvestmentEntry[] = [
     flags: ["uae"],
     position: "top-[30%] left-[25%]",
     coordinates: {
-      uae: { x: 100, y: 80 },
+      uae: { x: 235, y: 60 },
     },
   },
   {
@@ -93,8 +93,7 @@ const investments: InvestmentEntry[] = [
     flags: ["uae", "sweden"],
     position: "top-[30%] right-[25%]",
     coordinates: {
-      uae: { x: 260, y: 75 },
-      sweden: { x: 180, y: 300 },
+      uae: { x: 247, y: 75 }
     },
   },
   {
@@ -107,7 +106,7 @@ const investments: InvestmentEntry[] = [
     flags: ["uae"],
     position: "top-[45%] left-[30%]",
     coordinates: {
-      uae: { x: 180, y: 85 },
+      uae: { x: 160, y: 130 },
     },
   },
   {
@@ -120,8 +119,7 @@ const investments: InvestmentEntry[] = [
     flags: ["uae", "sweden"],
     position: "middle-[50%] left-[25%]",
     coordinates: {
-      uae: { x: 240, y: 95 },
-      sweden: { x: 210, y: 320 },
+      uae: { x: 175, y: 115 },
     },
   },
   {
@@ -134,7 +132,9 @@ const investments: InvestmentEntry[] = [
     flags: ["sweden"],
     position: "bottom-[35%] left-[20%]",
     coordinates: {
-      sweden: { x: 90, y: 240 },
+      sweden: { x: 175, y: 350 },
+      uae: { x: 210, y: 90 }
+
     },
   },
   {
@@ -148,7 +148,7 @@ const investments: InvestmentEntry[] = [
     flags: ["sweden"],
     position: "bottom-[20%] left-[25%]",
     coordinates: {
-      sweden: { x: 130, y: 270 },
+      sweden: { x: 180, y: 380 },
     },
   },
   {
@@ -162,7 +162,8 @@ const investments: InvestmentEntry[] = [
     flags: ["sweden"],
     position: "bottom-[35%] right-[25%]",
     coordinates: {
-      sweden: { x: 170, y: 290 },
+      uae: { x: 205, y: 100 },
+      sweden: { x: 190, y: 330 }
     },
   },
   {
@@ -175,7 +176,8 @@ const investments: InvestmentEntry[] = [
     flags: ["sweden"],
     position: "bottom-[25%] right-[30%]",
     coordinates: {
-      sweden: { x: 240, y: 310 },
+      uae: { x: 250, y: 60 },
+      sweden: { x: 195, y: 340 }
     },
   },
   {
@@ -188,7 +190,7 @@ const investments: InvestmentEntry[] = [
     flags: ["sweden"],
     position: "bottom-[15%] right-[20%]",
     coordinates: {
-      sweden: { x: 280, y: 330 },
+      sweden: { x: 210, y: 340 }
     },
   },
 ]
@@ -222,18 +224,52 @@ const MapConnection = () => {
     return (
       <g key={`connection-${entry.id}`}>
         {entry.coordinates.uae && entry.coordinates.sweden && (
+
+
+
+
+          // <path
+          //   key={`path-${entry.id}`}
+          //   d={`M ${entry.coordinates.uae.x} ${entry.coordinates.uae.y} 
+          //       C ${entry.coordinates.uae.x} ${(entry.coordinates.uae.y + entry.coordinates.sweden.y) / 2},
+          //         ${entry.coordinates.sweden.x} ${(entry.coordinates.uae.y + entry.coordinates.sweden.y) / 2},
+          //         ${entry.coordinates.sweden.x} ${entry.coordinates.sweden.y}`}
+          //   // stroke={isHighlighted ? "#2563eb" : "#94a3b8"}
+          //   stroke={isHighlighted ? "#f97316" : "#94a3b8"}
+
+          //   strokeWidth={isHighlighted ? "3" : "1.5"}
+          //   fill="none"
+          //   className="transition-all duration-300"
+          //   {...interactionProps}
+          // />
+
+
+
+
+
           <path
             key={`path-${entry.id}`}
             d={`M ${entry.coordinates.uae.x} ${entry.coordinates.uae.y} 
                 C ${entry.coordinates.uae.x} ${(entry.coordinates.uae.y + entry.coordinates.sweden.y) / 2},
                   ${entry.coordinates.sweden.x} ${(entry.coordinates.uae.y + entry.coordinates.sweden.y) / 2},
                   ${entry.coordinates.sweden.x} ${entry.coordinates.sweden.y}`}
-            stroke={isHighlighted ? "#2563eb" : "#94a3b8"}
+            stroke={isHighlighted ? "#f97316" : "#4169E1"} 
+            strokeDasharray={isHighlighted ? "0" : "3 3"}
             strokeWidth={isHighlighted ? "3" : "1.5"}
             fill="none"
             className="transition-all duration-300"
             {...interactionProps}
           />
+
+
+
+
+
+
+
+
+
+
         )}
         {entry.coordinates.uae && (
           <g {...interactionProps}>
@@ -242,7 +278,10 @@ const MapConnection = () => {
               cx={entry.coordinates.uae.x}
               cy={entry.coordinates.uae.y}
               r={isHighlighted ? "8" : "5"}
-              fill={isHighlighted ? "#2563eb" : "#94a3b8"}
+              // fill={isHighlighted ? "#2563eb" : "#94a3b8"}
+              fill={isHighlighted ? "#f97316" : "#94a3b8"}
+
+
               className="transition-all duration-300"
             />
             {isHighlighted && (
@@ -250,7 +289,9 @@ const MapConnection = () => {
                 x={entry.coordinates.uae.x + 12}
                 y={entry.coordinates.uae.y}
                 fontSize="10"
-                fill="#2563eb"
+                // fill="#2563eb"
+                fill="#f97316"
+
                 fontWeight="bold"
               >
                 {entry.title}
@@ -265,7 +306,10 @@ const MapConnection = () => {
               cx={entry.coordinates.sweden.x}
               cy={entry.coordinates.sweden.y}
               r={isHighlighted ? "8" : "5"}
-              fill={isHighlighted ? "#2563eb" : "#94a3b8"}
+              // fill={isHighlighted ? "#2563eb" : "#94a3b8"}
+              fill={isHighlighted ? "#f97316" : "#94a3b8"}
+
+
               className="transition-all duration-300"
             />
             {isHighlighted && (
@@ -273,7 +317,9 @@ const MapConnection = () => {
                 x={entry.coordinates.sweden.x + 12}
                 y={entry.coordinates.sweden.y}
                 fontSize="10"
-                fill="#2563eb"
+                // fill="#2563eb"
+                fill="#f97316"
+
                 fontWeight="bold"
               >
                 {entry.title}
@@ -291,7 +337,10 @@ const MapConnection = () => {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto p-4 md:p-8">
+    // <div className="max-w-[1200px] mx-auto p-4 md:p-8">
+    <div className="max-w-[1200px] mx-auto p-4">
+
+
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2">UAE-Sweden Investment Connections</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">

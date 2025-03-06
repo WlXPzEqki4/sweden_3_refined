@@ -12,6 +12,9 @@ import NetworkDiagram from "./NetworkDiagram";
 import TopicAnalysis from "./TopicAnalysis";
 import ThematicNetworkDiagram from "./ThematicNetworkDiagram";
 import MapConnection from "./MapConnection";
+import PortsConnection from "./PortsConnection";
+import InvestmentVisualization from "./InvestmentVisualization";
+
 
 
 interface SectionContentColumnProps {
@@ -90,11 +93,12 @@ export const SectionContentColumn: React.FC<SectionContentColumnProps> = ({
             <NetworkDiagram />
             <TopicAnalysis />
             <ThematicNetworkDiagram />
-
             <MapConnection />
+            <PortsConnection />
+            <InvestmentVisualization />
 
 
-
+            
 
             
 

@@ -624,11 +624,12 @@ export const relationsSections: SectionData[] = [
             type: "list",
             content: "Important policy and research organizations:",
             items: [
-              "Swedish Institute of International Affairs (UI)",
-              "Stockholm International Peace Research Institute (SIPRI)",
-              "Swedish Defense Research Agency (FOI)",
-              "Institute for Security & Development Policy (ISDP)",
-              "Swedish Institute"
+              
+              "Swedish Institute of International Affairs (UI): UI is primarily funded by Sweden’s Ministry for Foreign Affairs and reputable Swedish foundations. It conducts independent analyses of Middle Eastern geopolitics, including Gulf regional dynamics significant to UAE interests. There are no documented ties to the Muslim Brotherhood; its engagement is solely analytical.",
+              "Stockholm International Peace Research Institute (SIPRI): SIPRI receives major funding from the Swedish government, complemented by international sources, supporting its globally recognised security and arms-control research. Its analysis of arms imports, including UAE’s defence procurement strategies, offers strategic insights relevant to UAE policymakers. There are no documented institutional or financial connections between SIPRI and the Muslim Brotherhood.",
+              "Swedish Defense Research Agency (FOI): FOI is directly funded and governed by the Swedish Ministry of Defence, providing strategic security assessments and technological research. Its analyses of Middle Eastern conflicts and emerging security threats are relevant for UAE’s strategic planning. FOI has no institutional, financial, or ideological links to the Muslim Brotherhood.",
+              "Institute for Security & Development Policy (ISDP): ISDP's primary funding sources include Sweden’s government and international partners in East Asia and Europe. Its analysis of Eurasian connectivity, including China’s Belt and Road Initiative, aligns closely with UAE’s strategic economic interests. There are no documented links to the Muslim Brotherhood; ISDP remains analytical and critical regarding Islamist groups.",
+              "Swedish Institute (SI): SI operates under full Swedish governmental oversight, with funding through state budgets for cultural diplomacy and international exchanges. Its Middle East-focused initiatives, such as the Swedish Dialogue Institute, directly foster UAE–Sweden exchanges in education, innovation, and leadership development. SI has no known institutional or financial affiliations with the Muslim Brotherhood."
             ]
           },
           {
